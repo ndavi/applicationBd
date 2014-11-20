@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProjetAppBD</string>
+    <string name="saisie_livre">SaisieLivre</string>
+    <string name="affichage_livre">AffichageLivre</string>
+</resources>

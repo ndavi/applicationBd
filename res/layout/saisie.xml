@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        tools:context=".SaisieLivre">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Saisie d'un livre"
+            android:id="@+id/textView" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Code ISBN : "
+            android:id="@+id/textView2"
+            android:layout_marginTop="95dp"
+            android:layout_below="@+id/textView" android:layout_toLeftOf="@+id/input_saisie_ISBN"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Titre livre : "
+            android:id="@+id/textView3"
+            android:layout_marginTop="63dp"
+            android:layout_below="@+id/textView2" android:layout_alignLeft="@+id/textView2"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_saisie_ISBN" android:layout_above="@+id/textView3" android:layout_alignLeft="@+id/textView"
+            android:layout_alignRight="@+id/textView"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_saisie_titre" android:layout_alignBottom="@+id/textView3"
+            android:layout_toRightOf="@+id/textView3" android:layout_alignRight="@+id/input_saisie_ISBN"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter"
+            android:id="@+id/btn_saisie_ajout"
+            android:layout_alignParentBottom="true" android:layout_alignRight="@+id/textView2"
+            android:layout_marginBottom="47dp"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annuler"
+            android:id="@+id/btn_saisie_annuler"
+            android:layout_alignTop="@+id/btn_saisie_ajout" android:layout_toRightOf="@+id/input_saisie_titre"/>
+</RelativeLayout>
