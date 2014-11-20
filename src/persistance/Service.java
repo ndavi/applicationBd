@@ -20,6 +20,8 @@ public class Service implements InterfaceService {
     private static final int NUM_COL_ISBN = 1;
     private static String COL_TITRE;
     private static final int NUM_COL_TITRE = 2;
+    private static String COL_AUTEUR;
+    private static final int NUM_COL_AUTEUR = 3;
     private SQLiteDatabase bdd;
     private static Context unCtxt;
     private static InterfaceService instance = null;
@@ -68,6 +70,7 @@ public class Service implements InterfaceService {
         COL_ID =maBaseSQLite.getColId();
         COL_ISBN=maBaseSQLite.getColIsbn();
         COL_TITRE=maBaseSQLite.getColTitre();
+        COL_AUTEUR=maBaseSQLite.getColAuteur();
     }
     /**
      * @see persistance.InterfaceService#open()
@@ -108,6 +111,7 @@ public class Service implements InterfaceService {
 // (qui est le nom de la colonne dans laquelle on veut mettre la valeur)
         values.put(COL_ISBN, livre.getIsbn());
         values.put(COL_TITRE, livre.getTitre());
+        values.put(COL_AUTEUR, livre.getAuteur());
 // Insertion de l'objet dans la BDD via le ContentValues
         lg= bdd.insert(maBaseSQLite.getTableLivres(), null, values);
         if( lg <0 )
@@ -161,7 +165,7 @@ public class Service implements InterfaceService {
 // Ouverture de la base de données
             this.open();
             Cursor cursor = bdd.query(maBaseSQLite.getTableLivres(),
-                    new String[] {COL_ID, COL_ISBN, COL_TITRE} ,null,null, null, null, null);
+                    new String[] {COL_ID, COL_ISBN, COL_TITRE,COL_AUTEUR} ,null,null, null, null, null, null);
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 Livre unLivre = cursorToLivre(cursor);
@@ -190,6 +194,7 @@ public class Service implements InterfaceService {
             unLivre.setId(c.getInt(NUM_COL_ID));
             unLivre.setIsbn(c.getString(NUM_COL_ISBN));
             unLivre.setTitre(c.getString(NUM_COL_TITRE));
+            unLivre.setAuteur(c.getString(NUM_COL_AUTEUR));
         }
         return unLivre;
     }

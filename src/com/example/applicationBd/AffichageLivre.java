@@ -5,10 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.Toast;
+import android.widget.*;
 import meserreurs.MonException;
 import metier.Livre;
 import android.content.DialogInterface;
@@ -32,13 +29,20 @@ public class AffichageLivre extends Activity implements View.OnClickListener{
         try {
 // Appel de la méthode rechercheTousLesLivres()
             List<Livre> mesLivres = unlivre.rechercheTousLesLivres();
-                    Livre[] tabLivres = new Livre[mesLivres.size()] ;
+                    String[] tabLivres = new String[mesLivres.size() * 3] ;
             int i=0;
             for ( Livre l : mesLivres ) {
-                tabLivres[i++]= l;
+                tabLivres[i++]= l.getIsbn();
+                tabLivres[i++]= l.getTitre();
+                tabLivres[i++]= l.getAuteur();
             }
 //Création et initialisation de l'Adapter pour les personnes
-            unGv.setAdapter(new ArrayAdapter<Livre>(this, android.R.layout.simple_list_item_1,tabLivres));
+            unGv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,tabLivres));
+            unGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                    Toast.makeText(AffichageLivre.this, "" + position, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         catch (MonException e) {
             messageErreur(e ,"Erreur sur affichage du Grid !");

@@ -13,6 +13,7 @@ public class Livre {
     private int id;
     private String isbn;
     private String titre;
+    private String auteur;
     private Context unCtxt;
 
     public int getId() {
@@ -39,6 +40,14 @@ public class Livre {
         this.isbn = isbn;
     }
 
+    public String getAuteur() {
+        return auteur;
+    }
+
+    public void setAuteur(String auteur) {
+        this.auteur = auteur;
+    }
+
     public Livre() {
     }
 
@@ -51,7 +60,7 @@ public class Livre {
      * @param titre
      * @throws MonException
      */
-    public void ajoutLivre (String isbn, String titre) throws MonException {
+    public void ajoutLivre (String isbn, String titre,String auteur) throws MonException {
         String m;
         try {
 // Instanciation de la classe Service
@@ -59,6 +68,7 @@ public class Livre {
 // Affectation des paramètres aux propriétés
             this.setIsbn(isbn);
             this.setTitre(titre);
+            this.setAuteur(auteur);
 // Ouverture de la base de données pour écrire dedans
             unService.open();
 // Insertion du livre

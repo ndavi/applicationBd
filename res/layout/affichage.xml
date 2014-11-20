@@ -8,11 +8,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Quitter"
-            android:id="@+id/btn_affichage_quitter" android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
-            android:layout_marginRight="46dp" android:layout_marginBottom="66dp"/>
+            android:id="@+id/btn_affichage_quitter"
+            android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"/>
     <GridView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/gdv" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:numColumns="1"/>
+            android:numColumns="3"
+            android:layout_alignParentRight="true" android:layout_above="@+id/btn_affichage_quitter"/>
 </RelativeLayout>

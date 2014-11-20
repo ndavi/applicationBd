@@ -14,9 +14,10 @@ public class CreationBdSqlLite extends SQLiteOpenHelper {
     private static final String COL_ID = "ID";
     private static final String COL_ISBN = "ISBN";
     private static final String COL_TITRE = "Titre";
+    private static final String COL_AUTEUR = "Auteur";
     private static final String CREATE_BDD = "CREATE TABLE " + TABLE_LIVRE +
             " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_ISBN +
-            " TEXT NOT NULL, " + COL_TITRE + " TEXT NOT NULL);";
+            " TEXT NOT NULL, " + COL_TITRE + " TEXT NOT NULL " + COL_AUTEUR + ");";
     public CreationBdSqlLite(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -32,6 +33,9 @@ public class CreationBdSqlLite extends SQLiteOpenHelper {
     }
     public static String getColTitre() {
         return COL_TITRE;
+    }
+    public static String getColAuteur() {
+        return COL_AUTEUR;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {

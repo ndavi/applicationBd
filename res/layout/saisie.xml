@@ -49,4 +49,17 @@
             android:text="Annuler"
             android:id="@+id/btn_saisie_annuler"
             android:layout_alignTop="@+id/btn_saisie_ajout" android:layout_toRightOf="@+id/input_saisie_titre"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Auteur : "
+            android:id="@+id/txt_auteur"
+            android:layout_below="@+id/textView3" android:layout_alignLeft="@+id/btn_saisie_ajout"
+            android:layout_marginTop="71dp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_saisie_auteur" android:layout_alignBottom="@+id/txt_auteur"
+            android:layout_alignLeft="@+id/input_saisie_titre" android:layout_alignRight="@+id/input_saisie_titre"/>
 </RelativeLayout>

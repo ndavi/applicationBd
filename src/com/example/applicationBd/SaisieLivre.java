@@ -18,6 +18,7 @@ public class SaisieLivre extends Activity implements View.OnClickListener  {
     private Button btAnnuler;
     private EditText etCodeISBN;
     private EditText etTitreLivre;
+    private EditText etAuteurLivre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class SaisieLivre extends Activity implements View.OnClickListener  {
         btAnnuler = (Button)findViewById(R.id.btn_saisie_annuler);
         etCodeISBN = (EditText) findViewById(R.id.input_saisie_ISBN);
         etTitreLivre = (EditText) findViewById(R.id.input_saisie_titre);
+        etAuteurLivre = (EditText) findViewById(R.id.input_saisie_auteur);
         btAjouter.setOnClickListener(this);
         btAnnuler.setOnClickListener(this);
     }
@@ -35,17 +37,20 @@ public class SaisieLivre extends Activity implements View.OnClickListener  {
         if (v == btAjouter) {
             String isbn;
             String titre;
+            String auteur;
             Livre livre = new Livre(this);
 // on récupère les données
             isbn = etCodeISBN.getText().toString();
             titre = etTitreLivre.getText().toString();
+            auteur = etAuteurLivre.getText().toString();
             try {
-                livre.ajoutLivre(isbn,titre);
+                livre.ajoutLivre(isbn,titre,auteur);
             } catch (MonException e) {
                 messageErreur(e ,"Erreur sur insertion des données !");
             }
             etTitreLivre.setText("");
             etCodeISBN.setText("");
+            etAuteurLivre.setText("");
         } else if (v == btAnnuler) {
             finish();
         }
